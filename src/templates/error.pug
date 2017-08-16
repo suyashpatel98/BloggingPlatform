@@ -1,0 +1,43 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='favicon.ico')
+    title #{title}
+    // Bootstrap core CSS
+    link(href='/stylesheet/bootstrap.min.css', type='text/css' , rel='stylesheet')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    link(href='/stylesheet/ie10-viewport-bug-workaround.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='/stylesheet/blog.css', type='text/css' , rel='stylesheet')
+    // Just for debugging purposes. Don't actually copy these 2 lines!
+    //if lt IE 9
+      script(src='/js/ie8-responsive-file-warning.js')
+    script(src='/js/ie-emulation-modes-warning.js')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+  body
+    .blog-masthead
+      .container
+        nav.blog-nav
+          a.blog-nav-item.active(href='profile') Profile
+          a.blog-nav-item(href='blogs') Blogs
+          a.blog-nav-item(href='create') Create 
+          if currentUser
+            a.blog-nav-item(href='/logout') Log out 
+          a.blog-nav-item(href='/') About
+          if !currentUser
+            a.blog-nav-item(href='signup') Register
+            a.blog-nav-item(href='signin') Login
+  .main.container
+    .row.text-xs-center
+      .col-md-6.col-md-offset-3.p-t-2
+        i.icn-person.material-icons error
+        p.lead.m-t-2= message 

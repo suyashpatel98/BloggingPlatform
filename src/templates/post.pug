@@ -1,0 +1,123 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='favicon.ico')
+    title Blog Template for Bootstrap
+    // Bootstrap core CSS
+    link(href='/stylesheet/bootstrap.min.css', type='text/css' , rel='stylesheet')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    link(href='/stylesheet/ie10-viewport-bug-workaround.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='/stylesheet/blog.css', type='text/css' , rel='stylesheet')
+    // Just for debugging purposes. Don't actually copy these 2 lines!
+    //if lt IE 9
+      script(src='/js/ie8-responsive-file-warning.js')
+    script(src='/js/ie-emulation-modes-warning.js')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+  body
+    .blog-masthead
+      .container
+        nav.blog-nav
+          a.blog-nav-item.active(href='profile') Profile
+          a.blog-nav-item(href='blogs') Blogs
+          a.blog-nav-item(href='create') Create 
+          if currentUser
+            a.blog-nav-item(href='/logout') Log out 
+          a.blog-nav-item(href='/') About
+          if !currentUser
+            a.blog-nav-item(href='signup') Register
+            a.blog-nav-item(href='signin') Login
+    .container
+      .blog-header
+        h1.blog-title NoBS
+        p.lead.blog-description Show what you got 
+      .row
+        .col-sm-8.blog-main
+          .blog-post
+            each val in post_name
+              h2.blog-post-title #{val.title}
+              p.blog-post-meta
+                | by #{val.name}
+              p #{val.content}
+          // /.blog-post
+          nav
+            ul.pager
+              li
+                a(href='#') Previous
+              li
+                a(href='#') Next
+        // /.blog-main
+        .col-sm-3.col-sm-offset-1.blog-sidebar
+          .sidebar-module.sidebar-module-inset
+            h4 About
+            p
+              | Etiam porta 
+              em sem malesuada magna
+              |  mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+          .sidebar-module
+            h4 Archives
+            ol.list-unstyled
+              li
+                a(href='#') March 2014
+              li
+                a(href='#') February 2014
+              li
+                a(href='#') January 2014
+              li
+                a(href='#') December 2013
+              li
+                a(href='#') November 2013
+              li
+                a(href='#') October 2013
+              li
+                a(href='#') September 2013
+              li
+                a(href='#') August 2013
+              li
+                a(href='#') July 2013
+              li
+                a(href='#') June 2013
+              li
+                a(href='#') May 2013
+              li
+                a(href='#') April 2013
+          .sidebar-module
+            h4 Elsewhere
+            ol.list-unstyled
+              li
+                a(href='#') GitHub
+              li
+                a(href='#') Twitter
+              li
+                a(href='#') Facebook
+        // /.blog-sidebar
+      // /.row
+    // /.container
+    footer.blog-footer
+      p
+        | Blog template built for 
+        a(href='http://getbootstrap.com') Bootstrap
+        |  by 
+        a(href='https://twitter.com/mdo') @mdo
+        | .
+      p
+        a(href='#') Back to top
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script.
+      window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\\/script>')
+    script(src='../../dist/js/bootstrap.min.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='../../assets/js/ie10-viewport-bug-workaround.js')
