@@ -7,3 +7,5 @@ To see this project in action one needs to have mongodb and nodejs installed.
 This will get you started with the project. This project is basically to guide one to understand how to work with the express framework and mongodb. Front-end has not been looked at in great detail as that was not the intention of this project.
 
 NOTE : When you register or login or browse any other page you need to keep mongodb running.
+
+Run <mongod> in one cmd window. In the other you can use mongodb to view the "blog" database. Type <use blog> in the mongo shell. The "blog" database has 2 collections namely, "users" and "blogs".
