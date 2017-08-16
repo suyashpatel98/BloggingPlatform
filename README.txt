@@ -1,48 +1,9 @@
-5/6 tabs : about , profile , blogs , create , login/logout , register
+To see this project in action one needs to have mongodb and nodejs installed.
 
-Name of the database : blog
-2 collections : users, blogs 
-email : suyashpatel98@gmail.com
-password : suyash 
+1) Download all the files
+2)Then run <npm install> in the directory that has the package.json file as it lists all the dependencies.
+3)Then cd into src and run <nodemon app.js> and open any browser and type <localhost:3000>.
 
-//POST /create
-router.post('/create',function(req,res,next){
-  if(req.body.title && req.body.content){
-      // var userName;
-      User.findById(req.session.userId).exec(function (error, user) {
-        if (error) {
-          console.log('User not logged in');
-          return next(error);
-        } else {
-          console.log('maybe you cannot return user.name');
-          console.log(user.name);
-          // userName = user.name;
-          // console.log(userName);/*works*/
-        }
-      });//executes asyncly
-      var blogData = {
-        title: req.body.title,
-        content: req.body.content,
-        // name: 'suyash' /*works*/
-        name : userName
-      };
-      Blog.create(blogData, function (error, blog) {
-        if (error) {
-          return next(error);
-        } else {
-          console.log('blog data received');
-          return res.redirect('/blog');
-        }
-      });
-  }
-  else{
-    var err = new Error('All fields required');
-    err.status=400;
-    return next(err);
-  }
-});
+This will get you started with the project. This project is basically to guide one to understand how to work with the express framework and mongodb. Front-end has not been looked at in great detail as that was not the intention of this project.
 
-
-
-
-Try to get the users name without having him enter his name 
+NOTE : When you register or login or browse any other page you need to keep mongodb running.
